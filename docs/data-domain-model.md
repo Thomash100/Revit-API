@@ -27,6 +27,7 @@ model without renaming existing TGA contracts.
 | Entity | Meaning | Grain | Primary Identifiers |
 | --- | --- | --- | --- |
 | Discipline | Fachdisziplin such as architecture, structural, TGA, electrical, MSR, fire protection, landscape, or coordination | Enum value | Discipline name |
+| BIM level | Generic building level or floor included in an exchange document | One level | Level id, name |
 | ModelElement | Generic BIM element independent of Revit API types | One element | `UniqueId`, `ElementId`, optional `GlobalId` |
 | ElementClassification | Classification assigned by a system such as DIN, IFC, or office standard | One classification per element context | Classification system and code |
 | SourceApplication | Source system for element, parameter, issue, or result data | Enum value | Source name |
@@ -34,6 +35,18 @@ model without renaming existing TGA contracts.
 | ParameterSet | Group of parameter values by source and discipline | One parameter set per source/discipline context | Parameter set name |
 | ValidationIssue | Generic validation issue for any discipline | One issue per element/rule combination unless later defined otherwise | `uniqueId`, `ruleCode`, source |
 | CoordinationIssue | Cross-discipline coordination issue | One coordination issue | Issue id, related `UniqueId` values |
+
+## Multidisciplinary Sample
+
+The current repository includes a checked sample at:
+
+```text
+samples/bim-exchange.multidisciplinary.sample.json
+```
+
+The sample contains one project, two levels, multiple elements per listed discipline,
+typed parameter declarations, validation issues, and coordination issues. Unit tests
+load this JSON file directly to keep the generic BIM contract practically verifiable.
 
 ## Minimum Export Shape
 

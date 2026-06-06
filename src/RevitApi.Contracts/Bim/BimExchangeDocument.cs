@@ -10,6 +10,8 @@ public sealed record BimExchangeDocument
 
     public TgaProjectInfo Project { get; init; } = new();
 
+    public List<BimLevel> Levels { get; init; } = new();
+
     public List<Discipline> Disciplines { get; init; } = new();
 
     public List<ModelElement> Elements { get; init; } = new();

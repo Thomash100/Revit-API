@@ -16,10 +16,13 @@ src/RevitApi.Contracts/
   Json/         Gemeinsame System.Text.Json-Optionen
   Validation/   Bestehende TGA-Validierungsergebnisse
   WriteBack/    Revit-freier WriteBack-Vertrag
+samples/
+  bim-exchange.multidisciplinary.sample.json
 tests/
   RevitApi.Contracts.Tests/
 docs/
   ARCHITECTURE.md
+  examples.md
   PROJECT_SUMMARY.md
 ```
 
@@ -37,11 +40,20 @@ docs/
 - Architecture
 - Structural
 - TechnicalBuildingEquipment
+- Heating
+- Ventilation
+- Sanitary
 - Electrical
 - MSR
 - FireProtection
 - Landscape
 - Coordination
+
+## Beispiel-JSON
+
+`samples/bim-exchange.multidisciplinary.sample.json` enthaelt einen pruefbaren multidisziplinaeren `BimExchangeDocument`-Schnappschuss mit Projekt, zwei Ebenen, mehreren Elementen je Disziplin, ParameterSets, ValidationIssues und CoordinationIssues.
+
+Die Tests unter `RevitApi.Contracts.Tests` laden dieses Beispiel direkt und pruefen Deserialisierung, Pflichtfelder, Disziplinen, Parametertypen sowie Validation-/Coordination-Daten.
 
 ## Build und Tests
 

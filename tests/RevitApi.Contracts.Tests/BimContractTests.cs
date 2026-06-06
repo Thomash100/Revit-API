@@ -66,7 +66,9 @@ public sealed class BimContractTests
             [
                 Discipline.Architecture,
                 Discipline.Structural,
-                Discipline.TechnicalBuildingEquipment,
+                Discipline.Heating,
+                Discipline.Ventilation,
+                Discipline.Sanitary,
                 Discipline.Electrical,
                 Discipline.MSR,
                 Discipline.FireProtection,
@@ -128,7 +130,9 @@ public sealed class BimContractTests
 
         Assert.Contains("\"disciplines\":", json);
         Assert.Contains("\"architecture\"", json);
-        Assert.Contains("\"technicalBuildingEquipment\"", json);
+        Assert.Contains("\"heating\"", json);
+        Assert.Contains("\"ventilation\"", json);
+        Assert.Contains("\"sanitary\"", json);
         Assert.Contains("\"msr\"", json);
         Assert.Contains("\"sourceApplication\": \"externalValidation\"", json);
         Assert.Contains("\"coordinationIssues\":", json);

@@ -18,7 +18,7 @@ tests/RevitApi.Contracts.Tests
 
 | Bereich | Inhalt |
 | --- | --- |
-| BIM | `Discipline`, `ModelElement`, `ElementClassification`, `SourceApplication`, `ParameterValue`, `ParameterSet`, `ValidationIssue`, `CoordinationIssue`, `BimExchangeDocument` |
+| BIM | `Discipline`, `BimLevel`, `ModelElement`, `ElementClassification`, `SourceApplication`, `ParameterValue`, `ParameterSet`, `ValidationIssue`, `CoordinationIssue`, `BimExchangeDocument` |
 | Domain | `Shaft`, `Register`, `Trade`, `PlanningStatus` |
 | Export | Projektinfo, Summary, Raum-DTOs, Element-DTOs, Exportdokument |
 | JSON | Einheitliche `System.Text.Json`-Optionen mit camelCase und String-Enums |
@@ -37,6 +37,7 @@ tests/RevitApi.Contracts.Tests
 Der generische BIM-Vertrag besteht aus:
 
 - `BimExchangeDocument`
+- `BimLevel`
 - `ModelElement`
 - `ElementClassification`
 - `ParameterSet`
@@ -72,6 +73,9 @@ Die vorbereitete Fachlogik ist bewusst nur ein Vertrag, keine produktive Impleme
 | Architecture | Architektur |
 | Structural | Tragwerk |
 | TechnicalBuildingEquipment | TGA |
+| Heating | Heizung |
+| Ventilation | Lueftung |
+| Sanitary | Sanitaer |
 | Electrical | Elektro |
 | MSR | Mess-, Steuer- und Regelungstechnik |
 | FireProtection | Brandschutz |
@@ -86,6 +90,21 @@ Die vorbereitete Fachlogik ist bewusst nur ein Vertrag, keine produktive Impleme
 - Keine Revit-Transaktion.
 - Keine produktiven Fachfunktionen fuer Architektur, Tragwerk, Elektro, MSR, Brandschutz oder Landschaft.
 - Kein IFC-Editor, Webportal, Cloud Sync oder Projektmanagement.
+
+## Beispiele
+
+Das Repository enthaelt unter `samples/bim-exchange.multidisciplinary.sample.json` einen multidisziplinaeren Beispielvertrag. Er dient als Contract-Fixture fuer Unit Tests und als fachliche Orientierung fuer spaetere Plattformintegration.
+
+Der Beispielvertrag enthaelt:
+
+- ein Projekt
+- zwei Ebenen in `levels`
+- mehrere `ModelElement`-Eintraege je Disziplin
+- `UniqueId` und `ElementId` je Element
+- `ElementClassification`
+- `ParameterSets` mit typdeklarierten Stringwerten
+- `ValidationIssues`
+- `CoordinationIssues`
 
 ## Offene Punkte
 

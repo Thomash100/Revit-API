@@ -1,0 +1,707 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "name": "Demo BIM Campus",
+    "revitVersion": "2026",
+    "exportDate": "2026-06-06T10:00:00+00:00",
+    "source": "Revit-API"
+  },
+  "levels": [
+    {
+      "id": "level-eg",
+      "name": "EG",
+      "elevationMeters": 0.0
+    },
+    {
+      "id": "level-og01",
+      "name": "OG01",
+      "elevationMeters": 3.6
+    }
+  ],
+  "disciplines": [
+    "architecture",
+    "structural",
+    "heating",
+    "ventilation",
+    "sanitary",
+    "electrical",
+    "msr",
+    "fireProtection",
+    "landscape"
+  ],
+  "elements": [
+    {
+      "elementId": "A-1001",
+      "uniqueId": "uid-architecture-wall-eg",
+      "discipline": "architecture",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "DIN276",
+        "code": "330",
+        "name": "Aussenwand",
+        "discipline": "architecture"
+      },
+      "category": "Walls",
+      "family": "Basic Wall",
+      "type": "MW 240",
+      "levelName": "EG",
+      "parameterSets": [
+        {
+          "name": "Architecture",
+          "discipline": "architecture",
+          "sourceApplication": "revit",
+          "values": {
+            "FireRating": {
+              "name": "FireRating",
+              "value": "F90",
+              "dataType": "string",
+              "sourceApplication": "revit"
+            },
+            "Thickness": {
+              "name": "Thickness",
+              "value": "0.24",
+              "dataType": "number",
+              "unit": "m",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "A-1002",
+      "uniqueId": "uid-architecture-door-og01",
+      "discipline": "architecture",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "DIN276",
+        "code": "334",
+        "name": "Innentuer",
+        "discipline": "architecture"
+      },
+      "category": "Doors",
+      "family": "Single Flush",
+      "type": "Tuer 1.01",
+      "levelName": "OG01",
+      "parameterSets": [
+        {
+          "name": "Architecture",
+          "discipline": "architecture",
+          "sourceApplication": "revit",
+          "values": {
+            "Width": {
+              "name": "Width",
+              "value": "1.01",
+              "dataType": "number",
+              "unit": "m",
+              "sourceApplication": "revit"
+            },
+            "IsFireDoor": {
+              "name": "IsFireDoor",
+              "value": "true",
+              "dataType": "boolean",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "S-2001",
+      "uniqueId": "uid-structural-column-eg",
+      "discipline": "structural",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "DIN276",
+        "code": "350",
+        "name": "Stuetzen",
+        "discipline": "structural"
+      },
+      "category": "Structural Columns",
+      "family": "Concrete Column",
+      "type": "STB 300x300",
+      "levelName": "EG",
+      "parameterSets": [
+        {
+          "name": "Structural",
+          "discipline": "structural",
+          "sourceApplication": "revit",
+          "values": {
+            "ConcreteGrade": {
+              "name": "ConcreteGrade",
+              "value": "C30/37",
+              "dataType": "string",
+              "sourceApplication": "revit"
+            },
+            "LoadBearing": {
+              "name": "LoadBearing",
+              "value": "true",
+              "dataType": "boolean",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "S-2002",
+      "uniqueId": "uid-structural-slab-og01",
+      "discipline": "structural",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "DIN276",
+        "code": "352",
+        "name": "Decken",
+        "discipline": "structural"
+      },
+      "category": "Floors",
+      "family": "Structural Slab",
+      "type": "STB 220",
+      "levelName": "OG01",
+      "parameterSets": [
+        {
+          "name": "Structural",
+          "discipline": "structural",
+          "sourceApplication": "revit",
+          "values": {
+            "Thickness": {
+              "name": "Thickness",
+              "value": "0.22",
+              "dataType": "number",
+              "unit": "m",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "H-3001",
+      "uniqueId": "uid-heating-radiator-eg",
+      "discipline": "heating",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "TGA",
+        "code": "HZ-HEIZKOERPER",
+        "name": "Heizkoerper",
+        "discipline": "heating"
+      },
+      "category": "Mechanical Equipment",
+      "family": "Radiator",
+      "type": "HK 22",
+      "levelName": "EG",
+      "systemName": "HZ-Vorlauf",
+      "parameterSets": [
+        {
+          "name": "Heating",
+          "discipline": "heating",
+          "sourceApplication": "revit",
+          "values": {
+            "HeatingCapacity": {
+              "name": "HeatingCapacity",
+              "value": "1500",
+              "dataType": "number",
+              "unit": "W",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "H-3002",
+      "uniqueId": "uid-heating-pipe-og01",
+      "discipline": "heating",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "TGA",
+        "code": "HZ-ROHR",
+        "name": "Heizungsrohr",
+        "discipline": "heating"
+      },
+      "category": "Pipes",
+      "family": "Steel Pipe",
+      "type": "DN25",
+      "levelName": "OG01",
+      "systemName": "HZ-Ruecklauf",
+      "parameterSets": [
+        {
+          "name": "Heating",
+          "discipline": "heating",
+          "sourceApplication": "revit",
+          "values": {
+            "Diameter": {
+              "name": "Diameter",
+              "value": "25",
+              "dataType": "integer",
+              "unit": "mm",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "V-4001",
+      "uniqueId": "uid-ventilation-duct-eg",
+      "discipline": "ventilation",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "TGA",
+        "code": "LT-KANAL",
+        "name": "Lueftungskanal",
+        "discipline": "ventilation"
+      },
+      "category": "Ducts",
+      "family": "Rectangular Duct",
+      "type": "400x200",
+      "levelName": "EG",
+      "systemName": "ZU-01",
+      "parameterSets": [
+        {
+          "name": "Ventilation",
+          "discipline": "ventilation",
+          "sourceApplication": "revit",
+          "values": {
+            "AirFlow": {
+              "name": "AirFlow",
+              "value": "450",
+              "dataType": "number",
+              "unit": "m3/h",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "V-4002",
+      "uniqueId": "uid-ventilation-terminal-og01",
+      "discipline": "ventilation",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "TGA",
+        "code": "LT-AUSLASS",
+        "name": "Luftauslass",
+        "discipline": "ventilation"
+      },
+      "category": "Air Terminals",
+      "family": "Supply Diffuser",
+      "type": "Q 300",
+      "levelName": "OG01",
+      "systemName": "ZU-01",
+      "parameterSets": [
+        {
+          "name": "Ventilation",
+          "discipline": "ventilation",
+          "sourceApplication": "revit",
+          "values": {
+            "AirFlow": {
+              "name": "AirFlow",
+              "value": "120",
+              "dataType": "number",
+              "unit": "m3/h",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "SA-5001",
+      "uniqueId": "uid-sanitary-fixture-eg",
+      "discipline": "sanitary",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "TGA",
+        "code": "SAN-WC",
+        "name": "WC",
+        "discipline": "sanitary"
+      },
+      "category": "Plumbing Fixtures",
+      "family": "Wall Hung WC",
+      "type": "WC Standard",
+      "levelName": "EG",
+      "systemName": "SW",
+      "parameterSets": [
+        {
+          "name": "Sanitary",
+          "discipline": "sanitary",
+          "sourceApplication": "revit",
+          "values": {
+            "FixtureUnits": {
+              "name": "FixtureUnits",
+              "value": "4",
+              "dataType": "integer",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "SA-5002",
+      "uniqueId": "uid-sanitary-pipe-og01",
+      "discipline": "sanitary",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "TGA",
+        "code": "SAN-TW",
+        "name": "Trinkwasserleitung",
+        "discipline": "sanitary"
+      },
+      "category": "Pipes",
+      "family": "Copper Pipe",
+      "type": "DN20",
+      "levelName": "OG01",
+      "systemName": "TWK",
+      "parameterSets": [
+        {
+          "name": "Sanitary",
+          "discipline": "sanitary",
+          "sourceApplication": "revit",
+          "values": {
+            "Diameter": {
+              "name": "Diameter",
+              "value": "20",
+              "dataType": "integer",
+              "unit": "mm",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "E-6001",
+      "uniqueId": "uid-electrical-panel-eg",
+      "discipline": "electrical",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "ELT",
+        "code": "ELT-UV",
+        "name": "Unterverteilung",
+        "discipline": "electrical"
+      },
+      "category": "Electrical Equipment",
+      "family": "Panelboard",
+      "type": "UV-Standard",
+      "levelName": "EG",
+      "systemName": "AV",
+      "parameterSets": [
+        {
+          "name": "Electrical",
+          "discipline": "electrical",
+          "sourceApplication": "revit",
+          "values": {
+            "Voltage": {
+              "name": "Voltage",
+              "value": "400",
+              "dataType": "number",
+              "unit": "V",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "E-6002",
+      "uniqueId": "uid-electrical-cabletray-og01",
+      "discipline": "electrical",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "ELT",
+        "code": "ELT-TRASSE",
+        "name": "Kabeltrasse",
+        "discipline": "electrical"
+      },
+      "category": "Cable Trays",
+      "family": "Cable Tray",
+      "type": "200x60",
+      "levelName": "OG01",
+      "systemName": "AV",
+      "parameterSets": [
+        {
+          "name": "Electrical",
+          "discipline": "electrical",
+          "sourceApplication": "revit",
+          "values": {
+            "Width": {
+              "name": "Width",
+              "value": "200",
+              "dataType": "integer",
+              "unit": "mm",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "MSR-7001",
+      "uniqueId": "uid-msr-sensor-eg",
+      "discipline": "msr",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "MSR",
+        "code": "MSR-FUEHLER",
+        "name": "Temperaturfuehler",
+        "discipline": "msr"
+      },
+      "category": "Generic Models",
+      "family": "Sensor",
+      "type": "Temp PT1000",
+      "levelName": "EG",
+      "systemName": "MSR-HZ",
+      "parameterSets": [
+        {
+          "name": "MSR",
+          "discipline": "msr",
+          "sourceApplication": "revit",
+          "values": {
+            "SignalType": {
+              "name": "SignalType",
+              "value": "analog",
+              "dataType": "string",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "MSR-7002",
+      "uniqueId": "uid-msr-controller-og01",
+      "discipline": "msr",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "MSR",
+        "code": "MSR-DDC",
+        "name": "DDC Controller",
+        "discipline": "msr"
+      },
+      "category": "Electrical Equipment",
+      "family": "Controller",
+      "type": "DDC-16",
+      "levelName": "OG01",
+      "systemName": "MSR-LT",
+      "parameterSets": [
+        {
+          "name": "MSR",
+          "discipline": "msr",
+          "sourceApplication": "revit",
+          "values": {
+            "PointCount": {
+              "name": "PointCount",
+              "value": "16",
+              "dataType": "integer",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "F-8001",
+      "uniqueId": "uid-fireprotection-damper-eg",
+      "discipline": "fireProtection",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "BS",
+        "code": "BS-BSK",
+        "name": "Brandschutzklappe",
+        "discipline": "fireProtection"
+      },
+      "category": "Duct Accessories",
+      "family": "Fire Damper",
+      "type": "F90 400x200",
+      "levelName": "EG",
+      "systemName": "ZU-01",
+      "parameterSets": [
+        {
+          "name": "FireProtection",
+          "discipline": "fireProtection",
+          "sourceApplication": "revit",
+          "values": {
+            "FireRating": {
+              "name": "FireRating",
+              "value": "F90",
+              "dataType": "string",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "F-8002",
+      "uniqueId": "uid-fireprotection-extinguisher-og01",
+      "discipline": "fireProtection",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "BS",
+        "code": "BS-FL",
+        "name": "Feuerloescher",
+        "discipline": "fireProtection"
+      },
+      "category": "Specialty Equipment",
+      "family": "Extinguisher",
+      "type": "6kg ABC",
+      "levelName": "OG01",
+      "parameterSets": [
+        {
+          "name": "FireProtection",
+          "discipline": "fireProtection",
+          "sourceApplication": "revit",
+          "values": {
+            "ServiceIntervalMonths": {
+              "name": "ServiceIntervalMonths",
+              "value": "12",
+              "dataType": "integer",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "L-9001",
+      "uniqueId": "uid-landscape-tree-eg",
+      "discipline": "landscape",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "LAND",
+        "code": "LP-BAUM",
+        "name": "Baum",
+        "discipline": "landscape"
+      },
+      "category": "Planting",
+      "family": "Tree",
+      "type": "Acer campestre",
+      "levelName": "EG",
+      "parameterSets": [
+        {
+          "name": "Landscape",
+          "discipline": "landscape",
+          "sourceApplication": "revit",
+          "values": {
+            "Height": {
+              "name": "Height",
+              "value": "4.5",
+              "dataType": "number",
+              "unit": "m",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "elementId": "L-9002",
+      "uniqueId": "uid-landscape-paving-eg",
+      "discipline": "landscape",
+      "sourceApplication": "revit",
+      "classification": {
+        "classificationSystem": "LAND",
+        "code": "LP-BELAG",
+        "name": "Aussenbelag",
+        "discipline": "landscape"
+      },
+      "category": "Floors",
+      "family": "Paving",
+      "type": "Betonpflaster",
+      "levelName": "EG",
+      "parameterSets": [
+        {
+          "name": "Landscape",
+          "discipline": "landscape",
+          "sourceApplication": "revit",
+          "values": {
+            "Area": {
+              "name": "Area",
+              "value": "85.0",
+              "dataType": "number",
+              "unit": "m2",
+              "sourceApplication": "revit"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "validationIssues": [
+    {
+      "uniqueId": "uid-fireprotection-damper-eg",
+      "discipline": "fireProtection",
+      "sourceApplication": "externalValidation",
+      "ruleCode": "BS-001",
+      "severity": "warning",
+      "status": "open",
+      "message": "Brandschutzklappe ohne bestaetigten Wartungsparameter.",
+      "proposedWriteBack": {
+        "SM_Pruefstatus": "Warnung",
+        "SM_Pruefhinweis": "Wartungsparameter pruefen."
+      }
+    },
+    {
+      "uniqueId": "uid-ventilation-terminal-og01",
+      "discipline": "ventilation",
+      "sourceApplication": "externalValidation",
+      "ruleCode": "LT-010",
+      "severity": "info",
+      "status": "open",
+      "message": "Luftmenge gegen Raumbuch pruefen.",
+      "proposedWriteBack": {
+        "SM_Pruefstatus": "Hinweis"
+      }
+    },
+    {
+      "uniqueId": "uid-electrical-panel-eg",
+      "discipline": "electrical",
+      "sourceApplication": "externalValidation",
+      "ruleCode": "ELT-020",
+      "severity": "warning",
+      "status": "open",
+      "message": "Verteiler benoetigt Koordinationsfreigabe.",
+      "proposedWriteBack": {
+        "SM_Pruefstatus": "Warnung"
+      }
+    }
+  ],
+  "coordinationIssues": [
+    {
+      "id": "coord-001",
+      "title": "Lueftungstrasse kollidiert mit Unterzug",
+      "description": "Kanal im EG schneidet Tragwerk in Achse B.",
+      "status": "open",
+      "severity": "warning",
+      "sourceApplication": "navisworks",
+      "disciplines": [
+        "structural",
+        "ventilation"
+      ],
+      "relatedUniqueIds": [
+        "uid-structural-slab-og01",
+        "uid-ventilation-duct-eg"
+      ]
+    },
+    {
+      "id": "coord-002",
+      "title": "Elektrotrasse kreuzt Brandschutzklappe",
+      "description": "Kabeltrasse im OG01 liegt im Wartungsbereich der Brandschutzklappe.",
+      "status": "open",
+      "severity": "warning",
+      "sourceApplication": "navisworks",
+      "disciplines": [
+        "electrical",
+        "fireProtection",
+        "ventilation"
+      ],
+      "relatedUniqueIds": [
+        "uid-electrical-cabletray-og01",
+        "uid-fireprotection-damper-eg"
+      ]
+    }
+  ]
+}
