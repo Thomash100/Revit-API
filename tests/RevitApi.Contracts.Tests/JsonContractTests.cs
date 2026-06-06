@@ -57,6 +57,32 @@ public sealed class JsonContractTests
     }
 
     [Fact]
+    public void Existing_tga_export_document_keeps_legacy_top_level_shape()
+    {
+        var document = TgaExportDocument.Create(
+            new TgaProjectInfo
+            {
+                Name = "TGA Projekt",
+                RevitVersion = "2026",
+                ExportDate = new DateTimeOffset(2026, 6, 6, 10, 0, 0, TimeSpan.Zero)
+            },
+            new TgaExportSummary
+            {
+                Rooms = 0,
+                MepElements = 0
+            });
+
+        var json = RevitApiJsonSerializer.Serialize(document);
+
+        Assert.Contains("\"project\":", json);
+        Assert.Contains("\"summary\":", json);
+        Assert.Contains("\"rooms\": []", json);
+        Assert.Contains("\"elements\": []", json);
+        Assert.DoesNotContain("\"disciplines\":", json);
+        Assert.DoesNotContain("\"coordinationIssues\":", json);
+    }
+
+    [Fact]
     public void Validation_import_preserves_writeback_map()
     {
         const string json = """

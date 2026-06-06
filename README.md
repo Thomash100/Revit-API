@@ -1,17 +1,20 @@
 # Revit API Contracts
 
-Reine Schnittstellenbibliothek fuer den Revit-TGA-Datenaustausch.
+Reine Schnittstellenbibliothek fuer den Revit-/BIM-Datenaustausch.
 
-Dieses Repository enthaelt nur Contracts, DTOs, JSON-Serialisierung, Validation-Modelle und den WriteBack-Vertrag. Revit-Add-in-Code, Ribbon, Commands und App-Module gehoeren in `Thomash100/Revit-TGA-Platform`.
+Dieses Repository enthaelt nur Contracts, DTOs, JSON-Serialisierung, Validation-Modelle, Coordination-Modelle und den WriteBack-Vertrag. Revit-Add-in-Code, Ribbon, Commands und App-Module gehoeren in `Thomash100/Revit-TGA-Platform`.
+
+TGA bleibt als bestehender Vertrag kompatibel. Die generische BIM-Schicht bereitet zusaetzliche Fachdisziplinen wie Architektur, Tragwerk, Elektro, MSR, Brandschutz und Landschaftsplanung vor.
 
 ## Inhalt
 
 ```text
 src/RevitApi.Contracts/
-  Domain/       Shaft, Register, Trade, PlanningStatus
-  Export/       JSON-Export-DTOs fuer Projekt, Summary, Raeume und Elemente
+  Bim/          Generische BIM-Contracts fuer Disziplinen, Elemente, Parameter und Koordination
+  Domain/       Bestehende TGA-Contracts: Shaft, Register, Trade, PlanningStatus
+  Export/       TGA-kompatible JSON-Export-DTOs fuer Projekt, Summary, Raeume und Elemente
   Json/         Gemeinsame System.Text.Json-Optionen
-  Validation/   Externe Validierungsergebnisse
+  Validation/   Bestehende TGA-Validierungsergebnisse
   WriteBack/    Revit-freier WriteBack-Vertrag
 tests/
   RevitApi.Contracts.Tests/
@@ -26,6 +29,19 @@ docs/
 - `ElementId` bleibt nur diagnostische Revit-Kontextinformation.
 - DTOs und JSON-Vertraege bleiben Revit-frei und ohne Abhaengigkeit auf `RevitAPI.dll`.
 - WriteBack beschreibt nur Parameterupdates und Ergebnisstatus, keine Revit-Transaktionen.
+- `BimExchangeDocument` ist fuer multidisziplinaere Austauschdaten vorbereitet.
+- Bestehende `Tga*` DTOs werden nicht umbenannt und bleiben als TGA-kompatibler Vertrag erhalten.
+
+## Vorbereitete Disziplinen
+
+- Architecture
+- Structural
+- TechnicalBuildingEquipment
+- Electrical
+- MSR
+- FireProtection
+- Landscape
+- Coordination
 
 ## Build und Tests
 

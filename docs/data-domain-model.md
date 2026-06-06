@@ -6,6 +6,11 @@ This document describes the early data domain for the Revit-HLS-Exchange prototy
 It is based on Issue #1 and Issue #2 and should be refined once DTOs, sample files,
 and tests are implemented.
 
+The contract layer now also prepares a generic BIM exchange model. TGA/HLS remains the
+first compatible domain, while future consumers can add architecture, structural,
+electrical, MSR, fire protection, landscape, and coordination data through the generic
+model without renaming existing TGA contracts.
+
 ## Core Entities
 
 | Entity | Meaning | Grain | Primary Identifiers |
@@ -16,6 +21,19 @@ and tests are implemented.
 | HLS/TGA element | Revit building-services component included in the export | One element | `UniqueId`, `ElementId` |
 | Validation result | External checking result returned for an element | One result per checked element/rule combination unless later defined otherwise | `uniqueId`, `sourceSystem`, `ruleCode` |
 | WriteBack map | Parameter updates proposed from a validation result | One parameter map per validation result | `uniqueId`, parameter names |
+
+## Generic BIM Entities
+
+| Entity | Meaning | Grain | Primary Identifiers |
+| --- | --- | --- | --- |
+| Discipline | Fachdisziplin such as architecture, structural, TGA, electrical, MSR, fire protection, landscape, or coordination | Enum value | Discipline name |
+| ModelElement | Generic BIM element independent of Revit API types | One element | `UniqueId`, `ElementId`, optional `GlobalId` |
+| ElementClassification | Classification assigned by a system such as DIN, IFC, or office standard | One classification per element context | Classification system and code |
+| SourceApplication | Source system for element, parameter, issue, or result data | Enum value | Source name |
+| ParameterValue | Single named parameter value with optional unit and data type | One parameter value | Parameter name |
+| ParameterSet | Group of parameter values by source and discipline | One parameter set per source/discipline context | Parameter set name |
+| ValidationIssue | Generic validation issue for any discipline | One issue per element/rule combination unless later defined otherwise | `uniqueId`, `ruleCode`, source |
+| CoordinationIssue | Cross-discipline coordination issue | One coordination issue | Issue id, related `UniqueId` values |
 
 ## Minimum Export Shape
 
@@ -150,4 +168,3 @@ Write parameter values only when:
 - What are the canonical allowed values for validation `status`?
 - Which parameters are mandatory versus optional for rooms and elements?
 - How should duplicate validation results for the same `uniqueId` and `ruleCode` be handled?
-

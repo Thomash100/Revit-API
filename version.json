@@ -12,6 +12,7 @@
     ]
   },
   "modules": [
+    "BIM",
     "Contracts",
     "DTOs",
     "JSON",
