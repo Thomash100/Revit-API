@@ -1,0 +1,21 @@
+{
+  "product": "Revit API Contracts",
+  "version": "0.1.0",
+  "schemaVersion": 1,
+  "revit": {
+    "target": "2026",
+    "compatibility": [
+      "2025.3"
+    ],
+    "migrationWatch": [
+      "2027"
+    ]
+  },
+  "modules": [
+    "Contracts",
+    "DTOs",
+    "JSON",
+    "Validation",
+    "WriteBack"
+  ]
+}
