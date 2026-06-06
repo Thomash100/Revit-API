@@ -4,6 +4,21 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>RevitApi.Contracts</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Thomash100</Authors>
+    <Company>Thomash100</Company>
+    <Description>Revit-free BIM, TGA, JSON, validation, coordination, and WriteBack contract models for Revit platform integrations.</Description>
+    <PackageTags>revit;bim;tga;contracts;json;validation;coordination;writeback</PackageTags>
+    <PackageProjectUrl>https://github.com/Thomash100/Revit-API</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Thomash100/Revit-API</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>Initial package-ready contracts library with TGA-compatible DTOs and generic BIM exchange contracts.</PackageReleaseNotes>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
 
 </Project>

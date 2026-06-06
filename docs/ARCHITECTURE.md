@@ -32,6 +32,20 @@ tests/RevitApi.Contracts.Tests
 - Keine App-Modulstruktur.
 - Alle Modelle muessen in normalen .NET Unit Tests pruefbar bleiben.
 
+## Paketierung
+
+`RevitApi.Contracts` ist als versionierbares NuGet-/GitHub-Package vorbereitet.
+
+| Aspekt | Entscheidung |
+| --- | --- |
+| Package ID | `RevitApi.Contracts` |
+| Startversion | `0.1.0` |
+| Ziel-Feed | GitHub Packages unter `Thomash100` |
+| Publish-Weg | `.github/workflows/package-contracts.yml` |
+| Lokaler Pack | `dotnet pack src/RevitApi.Contracts/RevitApi.Contracts.csproj --configuration Release` |
+
+Die Paketierung ist eine Distributionsvorbereitung. Sie fuehrt keine Revit-Abhaengigkeit und keine produktive Exportlogik ein.
+
 ## JSON-Vertrag
 
 Der generische BIM-Vertrag besteht aus:
