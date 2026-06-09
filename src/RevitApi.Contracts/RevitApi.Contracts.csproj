@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>RevitApi.Contracts</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Authors>Thomash100</Authors>
     <Company>Thomash100</Company>
     <Description>Revit-free BIM, TGA, JSON, validation, coordination, and WriteBack contract models for Revit platform integrations.</Description>

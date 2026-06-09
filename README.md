@@ -69,7 +69,7 @@ dotnet format RevitApi.Contracts.sln --verify-no-changes --no-restore
 `RevitApi.Contracts` ist als NuGet-/GitHub-Package vorbereitet:
 
 ```powershell
-dotnet pack src/RevitApi.Contracts/RevitApi.Contracts.csproj --configuration Release --no-build -p:PackageVersion=0.1.0 --output artifacts/packages
+dotnet pack src/RevitApi.Contracts/RevitApi.Contracts.csproj --configuration Release --no-build -p:PackageVersion=0.1.1 --output artifacts/packages
 ```
 
 Die GitHub-Actions-Workflow-Datei `.github/workflows/package-contracts.yml` kann das Paket per Tag oder manuellem Start nach GitHub Packages veroeffentlichen. Details stehen in `docs/packaging.md`.
