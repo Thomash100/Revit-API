@@ -15,6 +15,7 @@
 - NuGet-/GitHub-Package-Metadaten fuer `RevitApi.Contracts` vorbereitet.
 - GitHub-Actions-Workflow zum Packen und Publizieren nach GitHub Packages ergaenzt.
 - Packaging-Dokumentation unter `docs/packaging.md` erstellt.
+- Lokale Dateisystem-Feed-Erzeugung ueber `scripts/publish-local-contracts-package.ps1` vorbereitet, damit Paketmodus-Tests ohne GitHub Packages moeglich sind.
 
 ## Offene Punkte
 
@@ -23,6 +24,7 @@
 - Fachliche Klassifikations- und Parameterkonventionen fuer Architektur, Tragwerk, Elektro, MSR, Brandschutz und Landschaft definieren.
 - Weitere Beispielvarianten fuer TGA-Export, Validation-Import und WriteBack ergaenzen.
 - Folgerelease `v0.1.1` nach GitHub Packages veroeffentlichen und Konsumentenbuild erneut pruefen.
+- GitHub-Packages-Auth-/Package-Zugriff bleibt offen; lokale Pakettests laufen ueber Dateisystem-Feed.
 
 ## Naechste Issue-Vorschlaege
 

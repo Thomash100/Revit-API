@@ -19,6 +19,22 @@ dotnet test tests/RevitApi.Contracts.Tests/RevitApi.Contracts.Tests.csproj --con
 dotnet pack src/RevitApi.Contracts/RevitApi.Contracts.csproj --configuration Release --no-build -p:PackageVersion=0.1.1 --output artifacts/packages
 ```
 
+## Local Filesystem Feed
+
+GitHub Packages is not required for local package-mode tests. The repository contains a script that creates a filesystem NuGet feed:
+
+```powershell
+.\scripts\publish-local-contracts-package.ps1
+```
+
+Default output:
+
+```text
+artifacts/local-nuget/RevitApi.Contracts.0.1.1.nupkg
+```
+
+The script builds `RevitApi.Contracts.sln`, runs the contract tests, packs the contract project, and leaves the package in the local feed. `Thomash100/Revit-TGA-Platform` can consume this feed through its `NuGet.Local.Config`.
+
 ## GitHub Packages
 
 The workflow `.github/workflows/package-contracts.yml` packs and publishes `RevitApi.Contracts` to GitHub Packages.
