@@ -21,6 +21,7 @@ tests/RevitApi.Contracts.Tests
 | BIM | `Discipline`, `BimLevel`, `ModelElement`, `ElementClassification`, `SourceApplication`, `ParameterValue`, `ParameterSet`, `ValidationIssue`, `CoordinationIssue`, `BimExchangeDocument` |
 | Domain | `Shaft`, `Register`, `Trade`, `PlanningStatus` |
 | Export | Projektinfo, Summary, Raum-DTOs, Element-DTOs, Exportdokument |
+| Network | Netzgraphen, Knoten, Kanten und Schema-Nummerierungs-Vorschauen |
 | JSON | Einheitliche `System.Text.Json`-Optionen mit camelCase und String-Enums |
 | Validation | Externe Validierungsergebnisse mit `uniqueId`, `sourceSystem`, `ruleCode`, `message`, `writeBack` |
 | WriteBack | Revit-freier Vertrag fuer Parameterupdates und Ergebnisstatus |
@@ -78,6 +79,16 @@ Der Validierungs- und WriteBack-Vertrag besteht aus:
 
 `UniqueId` ist die fuehrende Identitaet fuer externe Resultate und spaetere WriteBack-Ausfuehrung.
 
+## NetworkGraph und Schema-Nummerierung
+
+`RevitApi.Contracts.Network` bereitet read-only Netzgraphen fuer TGA-/BIM-Schemata vor:
+
+- `NetworkGraphDocument` als Container fuer Graphen und Nummerierungsvorschauen
+- `NetworkGraph`, `NetworkNode` und `NetworkEdge` fuer einfache Netzstrukturen aus Revit-Snapshots
+- `SchemaNumberingPreview` und `SchemaStrangAssignment` fuer startpunktbasierte Vorschauwerte wie `TGA_SchemaStrangNr`
+
+Diese Contracts sind keine WriteBack-Anweisung. Sie modellieren nur Vorschau- und Analyseergebnisse.
+
 ## Disziplinen
 
 Die vorbereitete Fachlogik ist bewusst nur ein Vertrag, keine produktive Implementierung:
@@ -108,6 +119,8 @@ Die vorbereitete Fachlogik ist bewusst nur ein Vertrag, keine produktive Impleme
 ## Beispiele
 
 Das Repository enthaelt unter `samples/bim-exchange.multidisciplinary.sample.json` einen multidisziplinaeren Beispielvertrag. Er dient als Contract-Fixture fuer Unit Tests und als fachliche Orientierung fuer spaetere Plattformintegration.
+
+Zusaetzlich enthaelt `samples/network-graph.schema-preview.sample.json` eine read-only Schema-Vorschau fuer einen einfachen TGA-Netzgraphen mit `TGA_SchemaStrangNr`.
 
 Der Beispielvertrag enthaelt:
 

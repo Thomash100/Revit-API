@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "name": "Demo TGA Schema",
+    "revitVersion": "2026",
+    "exportDate": "2026-06-12T08:00:00+02:00",
+    "source": "Revit-TGA-Platform"
+  },
+  "graphs": [
+    {
+      "id": "graph-ventilation-eg",
+      "name": "Zuluft EG",
+      "discipline": "ventilation",
+      "sourceApplication": "revit",
+      "systemName": "Zuluft",
+      "startNodeIds": [
+        "node-ahU-001"
+      ],
+      "nodes": [
+        {
+          "id": "node-ahU-001",
+          "elementId": "5001",
+          "uniqueId": "uid-ahU-001",
+          "discipline": "ventilation",
+          "sourceApplication": "revit",
+          "role": "startPoint",
+          "category": "OST_MechanicalEquipment",
+          "family": "Air handling unit",
+          "typeName": "AHU 2500",
+          "levelName": "EG",
+          "systemName": "Zuluft",
+          "classification": {
+            "classificationSystem": "Revit",
+            "code": "Equipment",
+            "name": "Air handling unit",
+            "discipline": "ventilation"
+          },
+          "parameterSets": [
+            {
+              "name": "System",
+              "discipline": "ventilation",
+              "sourceApplication": "revit",
+              "values": {
+                "flowRate": {
+                  "name": "flowRate",
+                  "value": "2500",
+                  "dataType": "integer",
+                  "unit": "m3/h",
+                  "sourceApplication": "revit"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "node-duct-001",
+          "elementId": "5101",
+          "uniqueId": "uid-duct-001",
+          "discipline": "ventilation",
+          "sourceApplication": "revit",
+          "role": "distributionSegment",
+          "category": "OST_DuctCurves",
+          "family": "Round duct",
+          "typeName": "DN 200",
+          "levelName": "EG",
+          "systemName": "Zuluft",
+          "classification": {
+            "classificationSystem": "Revit",
+            "code": "DistributionSegment",
+            "name": "Duct",
+            "discipline": "ventilation"
+          },
+          "parameterSets": [
+            {
+              "name": "Geometry",
+              "discipline": "ventilation",
+              "sourceApplication": "revit",
+              "values": {
+                "diameter": {
+                  "name": "diameter",
+                  "value": "200",
+                  "dataType": "integer",
+                  "unit": "mm",
+                  "sourceApplication": "revit"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "node-terminal-001",
+          "elementId": "5201",
+          "uniqueId": "uid-air-terminal-001",
+          "discipline": "ventilation",
+          "sourceApplication": "revit",
+          "role": "terminal",
+          "category": "OST_DuctTerminal",
+          "family": "Supply diffuser",
+          "typeName": "Diffuser 400",
+          "levelName": "EG",
+          "systemName": "Zuluft",
+          "classification": {
+            "classificationSystem": "Revit",
+            "code": "Terminal",
+            "name": "Air terminal",
+            "discipline": "ventilation"
+          },
+          "parameterSets": [
+            {
+              "name": "Preview",
+              "discipline": "ventilation",
+              "sourceApplication": "revit",
+              "values": {
+                "TGA_SchemaStrangNr": {
+                  "name": "TGA_SchemaStrangNr",
+                  "value": "S01",
+                  "dataType": "string",
+                  "sourceApplication": "revit"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge-001",
+          "fromNodeId": "node-ahU-001",
+          "toNodeId": "node-duct-001",
+          "kind": "connector",
+          "fromConnectorId": "conn-ahU-out",
+          "toConnectorId": "conn-duct-in",
+          "systemName": "Zuluft",
+          "isDirected": true
+        },
+        {
+          "id": "edge-002",
+          "fromNodeId": "node-duct-001",
+          "toNodeId": "node-terminal-001",
+          "kind": "connector",
+          "fromConnectorId": "conn-duct-out",
+          "toConnectorId": "conn-terminal-in",
+          "systemName": "Zuluft",
+          "isDirected": true
+        }
+      ]
+    }
+  ],
+  "numberingPreviews": [
+    {
+      "id": "preview-schema-strangnr-001",
+      "networkGraphId": "graph-ventilation-eg",
+      "parameterName": "TGA_SchemaStrangNr",
+      "strategy": "startPointBased",
+      "startNodeIds": [
+        "node-ahU-001"
+      ],
+      "assignments": [
+        {
+          "nodeId": "node-ahU-001",
+          "elementId": "5001",
+          "uniqueId": "uid-ahU-001",
+          "startNodeId": "node-ahU-001",
+          "strangIndex": 1,
+          "previewValue": "S01",
+          "status": "preview",
+          "sourceApplication": "revit"
+        },
+        {
+          "nodeId": "node-duct-001",
+          "elementId": "5101",
+          "uniqueId": "uid-duct-001",
+          "startNodeId": "node-ahU-001",
+          "strangIndex": 1,
+          "previewValue": "S01",
+          "status": "preview",
+          "sourceApplication": "revit"
+        },
+        {
+          "nodeId": "node-terminal-001",
+          "elementId": "5201",
+          "uniqueId": "uid-air-terminal-001",
+          "startNodeId": "node-ahU-001",
+          "strangIndex": 1,
+          "previewValue": "S01",
+          "status": "preview",
+          "sourceApplication": "revit"
+        }
+      ]
+    }
+  ],
+  "validationIssues": [],
+  "coordinationIssues": []
+}

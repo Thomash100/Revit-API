@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>RevitApi.Contracts</PackageId>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
     <Authors>Thomash100</Authors>
     <Company>Thomash100</Company>
     <Description>Revit-free BIM, TGA, JSON, validation, coordination, and WriteBack contract models for Revit platform integrations.</Description>
@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/Thomash100/Revit-API</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>Initial package-ready contracts library with TGA-compatible DTOs and generic BIM exchange contracts.</PackageReleaseNotes>
+    <PackageReleaseNotes>Add network graph and start-point based schema numbering preview contracts.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

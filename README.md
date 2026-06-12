@@ -69,7 +69,7 @@ dotnet format RevitApi.Contracts.sln --verify-no-changes --no-restore
 `RevitApi.Contracts` ist als NuGet-/GitHub-Package vorbereitet:
 
 ```powershell
-dotnet pack src/RevitApi.Contracts/RevitApi.Contracts.csproj --configuration Release --no-build -p:PackageVersion=0.1.1 --output artifacts/packages
+dotnet pack src/RevitApi.Contracts/RevitApi.Contracts.csproj --configuration Release --no-build -p:PackageVersion=0.1.2 --output artifacts/packages
 ```
 
 Fuer lokale Tests ohne GitHub Packages kann ein Dateisystem-Feed erzeugt werden:
@@ -78,7 +78,7 @@ Fuer lokale Tests ohne GitHub Packages kann ein Dateisystem-Feed erzeugt werden:
 .\scripts\publish-local-contracts-package.ps1
 ```
 
-Das Skript baut die Solution, fuehrt die Contract-Tests aus und legt `RevitApi.Contracts.0.1.1.nupkg` unter `artifacts/local-nuget` ab. Dieser Ordner ist ein lokaler NuGet-Feed fuer `Revit-TGA-Platform`.
+Das Skript baut die Solution, fuehrt die Contract-Tests aus und legt `RevitApi.Contracts.0.1.2.nupkg` unter `artifacts/local-nuget` ab. Dieser Ordner ist ein lokaler NuGet-Feed fuer `Revit-TGA-Platform`.
 
 Die GitHub-Actions-Workflow-Datei `.github/workflows/package-contracts.yml` kann das Paket per Tag oder manuellem Start nach GitHub Packages veroeffentlichen. Details stehen in `docs/packaging.md`.
 
