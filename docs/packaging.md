@@ -48,8 +48,21 @@ Current status for `v0.1.3`:
 
 - Tag `v0.1.3` has been pushed.
 - Workflow run `27422850699` completed Restore, Build, Test, and Pack successfully.
-- The `Publish to GitHub Packages` step failed.
+- The `Publish to GitHub Packages` step failed with `403 Forbidden` when using the default `GITHUB_TOKEN`.
+- The workflow now prefers the repository secret `CONTRACTS_PACKAGES_TOKEN` for publishing and falls back to `GITHUB_TOKEN` only when the secret is not configured.
 - A fresh consumer restore against GitHub Packages still requires valid authentication and currently fails with `401 Unauthorized` when no package token is provided.
+
+For publishing, configure a classic PAT as repository secret:
+
+```text
+CONTRACTS_PACKAGES_TOKEN
+```
+
+Required scopes:
+
+- `write:packages`
+- `read:packages`
+- `repo` when private repository or package access requires repository scope
 
 Consumers need the GitHub Packages source configured:
 

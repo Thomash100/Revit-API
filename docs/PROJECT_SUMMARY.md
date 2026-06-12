@@ -21,6 +21,7 @@
 - Lokale Dateisystem-Feed-Erzeugung ueber `scripts/publish-local-contracts-package.ps1` vorbereitet, damit Paketmodus-Tests ohne GitHub Packages moeglich sind.
 - Tag `v0.1.3` wurde fuer den aktuellen Contract-Stand erstellt und nach GitHub gepusht.
 - GitHub-Actions-Lauf `27422850699` fuer `v0.1.3` hat Restore, Build, Tests und Pack erfolgreich ausgefuehrt; der Schritt `Publish to GitHub Packages` ist fehlgeschlagen.
+- Package-Workflow nutzt jetzt bevorzugt `CONTRACTS_PACKAGES_TOKEN` fuer GitHub-Packages-Publish und faellt nur ohne Secret auf `GITHUB_TOKEN` zurueck.
 
 ## Offene Punkte
 
@@ -29,6 +30,7 @@
 - Fachliche Klassifikations- und Parameterkonventionen fuer Architektur, Tragwerk, Elektro, MSR, Brandschutz und Landschaft definieren.
 - Weitere Beispielvarianten fuer TGA-Export, Validation-Import und WriteBack ergaenzen.
 - GitHub-Packages-Publish fuer `v0.1.3` reparieren und Konsumentenbuild erneut pruefen.
+- Repository-Secret `CONTRACTS_PACKAGES_TOKEN` mit `write:packages` und `read:packages` setzen und Workflow manuell fuer Package-Version `0.1.3` starten.
 - GitHub-Packages-Auth-/Package-Zugriff bleibt offen; lokale Pakettests laufen ueber Dateisystem-Feed.
 
 ## Naechste Issue-Vorschlaege

@@ -19,6 +19,10 @@ permissions:
 jobs:
   pack:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_PACKAGES_SOURCE: https://nuget.pkg.github.com/Thomash100/index.json
+      GITHUB_PACKAGES_TOKEN: ${{ secrets.CONTRACTS_PACKAGES_TOKEN || github.token }}
+      HAS_CONTRACTS_PACKAGES_TOKEN: ${{ secrets.CONTRACTS_PACKAGES_TOKEN != '' }}
 
     steps:
       - name: Checkout
@@ -52,5 +56,27 @@ jobs:
       - name: Pack
         run: dotnet pack src/RevitApi.Contracts/RevitApi.Contracts.csproj --configuration Release --no-build -p:PackageVersion=${{ env.PACKAGE_VERSION }} --output artifacts/packages
 
+      - name: Configure GitHub Packages source
+        shell: pwsh
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:GITHUB_PACKAGES_TOKEN)) {
+            throw "No GitHub Packages token available. Configure CONTRACTS_PACKAGES_TOKEN with write:packages or grant GITHUB_TOKEN package publish access."
+          }
+
+          if ($env:HAS_CONTRACTS_PACKAGES_TOKEN -eq "true") {
+            Write-Host "Using CONTRACTS_PACKAGES_TOKEN for GitHub Packages publish."
+          }
+          else {
+            Write-Host "Using GITHUB_TOKEN fallback for GitHub Packages publish."
+          }
+
+          dotnet nuget remove source github-thomash100 2>$null
+          dotnet nuget add source $env:GITHUB_PACKAGES_SOURCE `
+            --name github-thomash100 `
+            --username $env:GITHUB_ACTOR `
+            --password $env:GITHUB_PACKAGES_TOKEN `
+            --store-password-in-clear-text
+
       - name: Publish to GitHub Packages
-        run: dotnet nuget push "artifacts/packages/*.nupkg" --source "https://nuget.pkg.github.com/Thomash100/index.json" --api-key "${{ secrets.GITHUB_TOKEN }}" --skip-duplicate
+        shell: pwsh
+        run: dotnet nuget push "artifacts/packages/*.nupkg" --source "github-thomash100" --api-key "$env:GITHUB_PACKAGES_TOKEN" --skip-duplicate
