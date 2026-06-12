@@ -16,5 +16,9 @@ public sealed record NetworkEdge
 
     public string? SystemName { get; init; }
 
+    public NetworkFlowDirection FlowDirection { get; init; } = NetworkFlowDirection.Undefined;
+
+    public NetworkDirectionSource DirectionSource { get; init; } = NetworkDirectionSource.Unknown;
+
     public bool IsDirected { get; init; } = true;
 }

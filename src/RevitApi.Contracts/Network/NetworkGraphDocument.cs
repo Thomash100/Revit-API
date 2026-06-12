@@ -11,6 +11,8 @@ public sealed record NetworkGraphDocument
 
     public TgaProjectInfo Project { get; init; } = new();
 
+    public List<SchemaRuleSet> RuleSets { get; init; } = new();
+
     public List<NetworkGraph> Graphs { get; init; } = new();
 
     public List<SchemaNumberingPreview> NumberingPreviews { get; init; } = new();

@@ -6,6 +6,34 @@
     "exportDate": "2026-06-12T08:00:00+02:00",
     "source": "Revit-TGA-Platform"
   },
+  "ruleSets": [
+    {
+      "id": "tga-basic-schema-rules",
+      "name": "TGA basic schema preview rules",
+      "startPointRules": [
+        {
+          "id": "start-mechanical-equipment",
+          "description": "Mechanical equipment can be selected as schema start point.",
+          "priority": 10,
+          "roles": [
+            "equipment",
+            "startPoint"
+          ],
+          "categoryPatterns": [
+            "OST_MechanicalEquipment"
+          ]
+        }
+      ],
+      "branchRules": [
+        {
+          "id": "branch-at-unconnected-terminal",
+          "description": "Unconnected terminal nodes stay unresolved in preview.",
+          "trigger": "unreachableNode",
+          "startsNewStrang": false
+        }
+      ]
+    }
+  ],
   "graphs": [
     {
       "id": "graph-ventilation-eg",
@@ -131,6 +159,8 @@
           "fromConnectorId": "conn-ahU-out",
           "toConnectorId": "conn-duct-in",
           "systemName": "Zuluft",
+          "flowDirection": "supply",
+          "directionSource": "revitConnector",
           "isDirected": true
         },
         {
@@ -141,6 +171,8 @@
           "fromConnectorId": "conn-duct-out",
           "toConnectorId": "conn-terminal-in",
           "systemName": "Zuluft",
+          "flowDirection": "supply",
+          "directionSource": "revitConnector",
           "isDirected": true
         }
       ]
@@ -151,6 +183,7 @@
       "id": "preview-schema-strangnr-001",
       "networkGraphId": "graph-ventilation-eg",
       "parameterName": "TGA_SchemaStrangNr",
+      "ruleSetId": "tga-basic-schema-rules",
       "strategy": "startPointBased",
       "startNodeIds": [
         "node-ahU-001"
@@ -184,6 +217,38 @@
           "strangIndex": 1,
           "previewValue": "S01",
           "status": "preview",
+          "sourceApplication": "revit"
+        }
+      ],
+      "writeBackCandidates": [
+        {
+          "nodeId": "node-ahU-001",
+          "elementId": "5001",
+          "uniqueId": "uid-ahU-001",
+          "parameterName": "TGA_SchemaStrangNr",
+          "proposedValue": "S01",
+          "status": "candidate",
+          "requiresApproval": true,
+          "sourceApplication": "revit"
+        },
+        {
+          "nodeId": "node-duct-001",
+          "elementId": "5101",
+          "uniqueId": "uid-duct-001",
+          "parameterName": "TGA_SchemaStrangNr",
+          "proposedValue": "S01",
+          "status": "candidate",
+          "requiresApproval": true,
+          "sourceApplication": "revit"
+        },
+        {
+          "nodeId": "node-terminal-001",
+          "elementId": "5201",
+          "uniqueId": "uid-air-terminal-001",
+          "parameterName": "TGA_SchemaStrangNr",
+          "proposedValue": "S01",
+          "status": "candidate",
+          "requiresApproval": true,
           "sourceApplication": "revit"
         }
       ]

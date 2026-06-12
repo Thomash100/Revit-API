@@ -85,9 +85,12 @@ Der Validierungs- und WriteBack-Vertrag besteht aus:
 
 - `NetworkGraphDocument` als Container fuer Graphen und Nummerierungsvorschauen
 - `NetworkGraph`, `NetworkNode` und `NetworkEdge` fuer einfache Netzstrukturen aus Revit-Snapshots
+- `NetworkFlowDirection` und `NetworkDirectionSource` fuer aus Connectoren oder Regeln abgeleitete Flussrichtung
+- `SchemaRuleSet`, `SchemaStartPointRule` und `SchemaBranchRule` fuer fachliche Preview-Regeln
 - `SchemaNumberingPreview` und `SchemaStrangAssignment` fuer startpunktbasierte Vorschauwerte wie `TGA_SchemaStrangNr`
+- `SchemaWriteBackCandidate` fuer separat freizugebende Parameterkandidaten
 
-Diese Contracts sind keine WriteBack-Anweisung. Sie modellieren nur Vorschau- und Analyseergebnisse.
+Diese Contracts sind keine WriteBack-Anweisung. Sie modellieren nur Vorschau- und Analyseergebnisse. Ein `SchemaWriteBackCandidate` darf erst nach separater fachlicher Freigabe in einen echten `WriteBackRequest` ueberfuehrt werden.
 
 ## Disziplinen
 
@@ -120,7 +123,7 @@ Die vorbereitete Fachlogik ist bewusst nur ein Vertrag, keine produktive Impleme
 
 Das Repository enthaelt unter `samples/bim-exchange.multidisciplinary.sample.json` einen multidisziplinaeren Beispielvertrag. Er dient als Contract-Fixture fuer Unit Tests und als fachliche Orientierung fuer spaetere Plattformintegration.
 
-Zusaetzlich enthaelt `samples/network-graph.schema-preview.sample.json` eine read-only Schema-Vorschau fuer einen einfachen TGA-Netzgraphen mit `TGA_SchemaStrangNr`.
+Zusaetzlich enthaelt `samples/network-graph.schema-preview.sample.json` eine read-only Schema-Vorschau fuer einen einfachen TGA-Netzgraphen mit `TGA_SchemaStrangNr`, Startpunktregeln, Flussrichtungsmetadaten und WriteBack-Kandidaten.
 
 Der Beispielvertrag enthaelt:
 
@@ -137,6 +140,6 @@ Der Beispielvertrag enthaelt:
 
 - Paketierungsstrategie fuer Konsumenten festlegen.
 - Schema-Versionierung und Breaking-Change-Regeln definieren.
-- Beispiel-JSON unter `samples/` ergaenzen.
+- Beispiel-JSON fuer weitere Netzvarianten unter `samples/` ergaenzen.
 - Finale Shared-Parameter fuer WriteBack abstimmen.
 - Namenskonventionen und Klassifikationssysteme fuer alle Disziplinen fachlich abstimmen.

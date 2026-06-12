@@ -1,10 +1,10 @@
 {
   "product": "Revit API Contracts",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "schemaVersion": 1,
   "package": {
     "id": "RevitApi.Contracts",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "feed": "https://nuget.pkg.github.com/Thomash100/index.json"
   },
   "revit": {

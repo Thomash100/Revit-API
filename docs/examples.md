@@ -34,10 +34,13 @@ It represents a `NetworkGraphDocument` with:
 - one ventilation graph
 - graph nodes for start equipment, distribution segment, and terminal
 - directed connector edges between nodes
+- connector-derived `flowDirection` and `directionSource`
+- basic start point and branch rule sets
 - start-point based numbering preview
 - preview assignments for `TGA_SchemaStrangNr`
+- explicit `writeBackCandidates` for later approval
 
-The preview assignments are read-only contract data. They do not represent a WriteBack request and do not modify a Revit model.
+The preview assignments and writeback candidates are read-only contract data. They do not represent a `WriteBackRequest` and do not modify a Revit model.
 
 ## Parameter Values
 

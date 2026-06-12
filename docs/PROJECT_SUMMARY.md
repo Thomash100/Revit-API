@@ -14,6 +14,7 @@
 - Contract-Tests lesen das Beispiel-JSON und pruefen Pflichtfelder, Disziplinen, Parameterwerte, ValidationIssues und CoordinationIssues.
 - NetworkGraph-Contracts und startpunktbasierte Schema-Nummerierungs-Vorschau fuer `TGA_SchemaStrangNr` vorbereitet.
 - Beispiel-JSON `samples/network-graph.schema-preview.sample.json` und Tests fuer Graph, Kanten, Startpunkte und Preview-Zuordnungen ergaenzt.
+- Schema-Regelsets, Flow-Richtungsmetadaten und explizite WriteBack-Kandidaten als Preview-Vertrag ergaenzt.
 - NuGet-/GitHub-Package-Metadaten fuer `RevitApi.Contracts` vorbereitet.
 - GitHub-Actions-Workflow zum Packen und Publizieren nach GitHub Packages ergaenzt.
 - Packaging-Dokumentation unter `docs/packaging.md` erstellt.
@@ -25,14 +26,14 @@
 - Finale WriteBack-Parameterliste fachlich bestaetigen.
 - Fachliche Klassifikations- und Parameterkonventionen fuer Architektur, Tragwerk, Elektro, MSR, Brandschutz und Landschaft definieren.
 - Weitere Beispielvarianten fuer TGA-Export, Validation-Import und WriteBack ergaenzen.
-- Folgerelease `v0.1.2` nach GitHub Packages veroeffentlichen und Konsumentenbuild erneut pruefen.
+- Folgerelease `v0.1.3` nach GitHub Packages veroeffentlichen und Konsumentenbuild erneut pruefen.
 - GitHub-Packages-Auth-/Package-Zugriff bleibt offen; lokale Pakettests laufen ueber Dateisystem-Feed.
 
 ## Naechste Issue-Vorschlaege
 
 1. JSON-Beispieldateien fuer TGA-Export, Validation und WriteBack anlegen.
 2. Schema-Versionierungsregeln fuer Contracts definieren.
-3. Paketnutzung von `RevitApi.Contracts` `0.1.2` in `Revit-TGA-Platform` gegen GitHub Packages pruefen.
+3. Paketnutzung von `RevitApi.Contracts` `0.1.3` in `Revit-TGA-Platform` gegen GitHub Packages pruefen.
 4. WriteBack-Parameterkatalog fachlich abstimmen.
 5. Contract-Tests gegen Beispiel-JSON-Dateien ergaenzen.
 6. Multidisziplinaeres Beispiel gegen reale Projektparameter spiegeln.

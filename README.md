@@ -14,10 +14,12 @@ src/RevitApi.Contracts/
   Domain/       Bestehende TGA-Contracts: Shaft, Register, Trade, PlanningStatus
   Export/       TGA-kompatible JSON-Export-DTOs fuer Projekt, Summary, Raeume und Elemente
   Json/         Gemeinsame System.Text.Json-Optionen
+  Network/      Read-only Netzgraphen, Schema-Regeln und Nummerierungs-Vorschauen
   Validation/   Bestehende TGA-Validierungsergebnisse
   WriteBack/    Revit-freier WriteBack-Vertrag
 samples/
   bim-exchange.multidisciplinary.sample.json
+  network-graph.schema-preview.sample.json
 tests/
   RevitApi.Contracts.Tests/
 docs/
@@ -56,6 +58,8 @@ docs/
 
 Die Tests unter `RevitApi.Contracts.Tests` laden dieses Beispiel direkt und pruefen Deserialisierung, Pflichtfelder, Disziplinen, Parametertypen sowie Validation-/Coordination-Daten.
 
+`samples/network-graph.schema-preview.sample.json` enthaelt eine read-only Schema-Vorschau fuer `TGA_SchemaStrangNr`. Das Beispiel modelliert Startpunktregeln, einfache Strangwechselregeln, Connector-/Flussrichtung und explizite WriteBack-Kandidaten. Diese Kandidaten sind noch keine `WriteBackRequest` und fuehren keine Revit-Modellaenderung aus.
+
 ## Build und Tests
 
 ```powershell
@@ -69,7 +73,7 @@ dotnet format RevitApi.Contracts.sln --verify-no-changes --no-restore
 `RevitApi.Contracts` ist als NuGet-/GitHub-Package vorbereitet:
 
 ```powershell
-dotnet pack src/RevitApi.Contracts/RevitApi.Contracts.csproj --configuration Release --no-build -p:PackageVersion=0.1.2 --output artifacts/packages
+dotnet pack src/RevitApi.Contracts/RevitApi.Contracts.csproj --configuration Release --no-build -p:PackageVersion=0.1.3 --output artifacts/packages
 ```
 
 Fuer lokale Tests ohne GitHub Packages kann ein Dateisystem-Feed erzeugt werden:
@@ -78,7 +82,7 @@ Fuer lokale Tests ohne GitHub Packages kann ein Dateisystem-Feed erzeugt werden:
 .\scripts\publish-local-contracts-package.ps1
 ```
 
-Das Skript baut die Solution, fuehrt die Contract-Tests aus und legt `RevitApi.Contracts.0.1.2.nupkg` unter `artifacts/local-nuget` ab. Dieser Ordner ist ein lokaler NuGet-Feed fuer `Revit-TGA-Platform`.
+Das Skript baut die Solution, fuehrt die Contract-Tests aus und legt `RevitApi.Contracts.0.1.3.nupkg` unter `artifacts/local-nuget` ab. Dieser Ordner ist ein lokaler NuGet-Feed fuer `Revit-TGA-Platform`.
 
 Die GitHub-Actions-Workflow-Datei `.github/workflows/package-contracts.yml` kann das Paket per Tag oder manuellem Start nach GitHub Packages veroeffentlichen. Details stehen in `docs/packaging.md`.
 

@@ -16,7 +16,7 @@ The package contains only Revit-free contracts, DTOs, JSON models, validation mo
 ```powershell
 dotnet build RevitApi.Contracts.sln --configuration Release
 dotnet test tests/RevitApi.Contracts.Tests/RevitApi.Contracts.Tests.csproj --configuration Release
-dotnet pack src/RevitApi.Contracts/RevitApi.Contracts.csproj --configuration Release --no-build -p:PackageVersion=0.1.2 --output artifacts/packages
+dotnet pack src/RevitApi.Contracts/RevitApi.Contracts.csproj --configuration Release --no-build -p:PackageVersion=0.1.3 --output artifacts/packages
 ```
 
 ## Local Filesystem Feed
@@ -30,7 +30,7 @@ GitHub Packages is not required for local package-mode tests. The repository con
 Default output:
 
 ```text
-artifacts/local-nuget/RevitApi.Contracts.0.1.2.nupkg
+artifacts/local-nuget/RevitApi.Contracts.0.1.3.nupkg
 ```
 
 The script builds `RevitApi.Contracts.sln`, runs the contract tests, packs the contract project, and leaves the package in the local feed. `Thomash100/Revit-TGA-Platform` can consume this feed through its `NuGet.Local.Config`.
@@ -41,7 +41,7 @@ The workflow `.github/workflows/package-contracts.yml` packs and publishes `Revi
 
 It can be started by:
 
-- pushing a tag such as `v0.1.2` or `revitapi-contracts-v0.1.2`
+- pushing a tag such as `v0.1.3` or `revitapi-contracts-v0.1.3`
 - running the workflow manually with a package version
 
 Consumers need the GitHub Packages source configured:
@@ -57,7 +57,7 @@ dotnet nuget add source "https://nuget.pkg.github.com/Thomash100/index.json" `
 ## Consumer Reference
 
 ```xml
-<PackageReference Include="RevitApi.Contracts" Version="0.1.2" />
+<PackageReference Include="RevitApi.Contracts" Version="0.1.3" />
 ```
 
 `Thomash100/Revit-TGA-Platform` still supports local ProjectReference development, but the target model is a versioned package reference for repeatable CI and team builds.
