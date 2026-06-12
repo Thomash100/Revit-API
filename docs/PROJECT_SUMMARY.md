@@ -19,6 +19,8 @@
 - GitHub-Actions-Workflow zum Packen und Publizieren nach GitHub Packages ergaenzt.
 - Packaging-Dokumentation unter `docs/packaging.md` erstellt.
 - Lokale Dateisystem-Feed-Erzeugung ueber `scripts/publish-local-contracts-package.ps1` vorbereitet, damit Paketmodus-Tests ohne GitHub Packages moeglich sind.
+- Tag `v0.1.3` wurde fuer den aktuellen Contract-Stand erstellt und nach GitHub gepusht.
+- GitHub-Actions-Lauf `27422850699` fuer `v0.1.3` hat Restore, Build, Tests und Pack erfolgreich ausgefuehrt; der Schritt `Publish to GitHub Packages` ist fehlgeschlagen.
 
 ## Offene Punkte
 
@@ -26,14 +28,14 @@
 - Finale WriteBack-Parameterliste fachlich bestaetigen.
 - Fachliche Klassifikations- und Parameterkonventionen fuer Architektur, Tragwerk, Elektro, MSR, Brandschutz und Landschaft definieren.
 - Weitere Beispielvarianten fuer TGA-Export, Validation-Import und WriteBack ergaenzen.
-- Folgerelease `v0.1.3` nach GitHub Packages veroeffentlichen und Konsumentenbuild erneut pruefen.
+- GitHub-Packages-Publish fuer `v0.1.3` reparieren und Konsumentenbuild erneut pruefen.
 - GitHub-Packages-Auth-/Package-Zugriff bleibt offen; lokale Pakettests laufen ueber Dateisystem-Feed.
 
 ## Naechste Issue-Vorschlaege
 
 1. JSON-Beispieldateien fuer TGA-Export, Validation und WriteBack anlegen.
 2. Schema-Versionierungsregeln fuer Contracts definieren.
-3. Paketnutzung von `RevitApi.Contracts` `0.1.3` in `Revit-TGA-Platform` gegen GitHub Packages pruefen.
+3. GitHub-Packages-Publish fuer `RevitApi.Contracts` `0.1.3` reparieren und Paketnutzung in `Revit-TGA-Platform` gegen GitHub Packages pruefen.
 4. WriteBack-Parameterkatalog fachlich abstimmen.
 5. Contract-Tests gegen Beispiel-JSON-Dateien ergaenzen.
 6. Multidisziplinaeres Beispiel gegen reale Projektparameter spiegeln.

@@ -44,6 +44,13 @@ It can be started by:
 - pushing a tag such as `v0.1.3` or `revitapi-contracts-v0.1.3`
 - running the workflow manually with a package version
 
+Current status for `v0.1.3`:
+
+- Tag `v0.1.3` has been pushed.
+- Workflow run `27422850699` completed Restore, Build, Test, and Pack successfully.
+- The `Publish to GitHub Packages` step failed.
+- A fresh consumer restore against GitHub Packages still requires valid authentication and currently fails with `401 Unauthorized` when no package token is provided.
+
 Consumers need the GitHub Packages source configured:
 
 ```powershell
